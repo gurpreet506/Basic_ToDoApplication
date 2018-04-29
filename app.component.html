@@ -1,0 +1,38 @@
+<mat-toolbar style="background-color:blue">
+  <h1> {{title}} </h1>
+</mat-toolbar>
+
+<br><br>
+
+<mat-card>
+<mat-form-field>
+  <input matInput placeholder="Enter the task to be completed" mat-maxlength="40" #newTodo />
+</mat-form-field>
+
+<button mat-button color="primary" (click)="addTodo(newTodo.value)"><i class="material-icons">add_circle</i></button><br><br>
+</mat-card>
+
+<mat-card>
+  <br>
+<table>
+  
+  <tr>
+  <th>Label</th>
+  <th>Priority</th>
+  <th>Done</th>
+  <th>Action</th>
+  </tr>
+  
+  <tr *ngFor="let todo of todos">
+  <td>{{todo.label}}</td>
+  <td>{{todo.priority}}</td>
+  <td>{{todo.done ? '&#10003;' : '&#10005;'}}</td>
+  <td>
+  <button mat-button color="warn" (click)="deleteTodo(todo)"><i class="material-icons">delete</i></button>
+  </tr>
+  
+  </table>
+  </mat-card>
+  
+  
+
